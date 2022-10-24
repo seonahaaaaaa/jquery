@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title> 첫 연습 </title>
+	
+	<!-- 제이쿼리 라이브러리 연결 -->
+	
+	<!-- 1) 우리 서버에 있는 절대 경로 -->
+	<!-- <script type="text/javascript" src = '/WebUI/5_jquery_class/lib/jquery-3.6.1.js'></script> -->
+	
+	<!-- 2) 우리 서버에 있는 상대 경로 -->
+	<!-- <script type="text/javascript" src = '../lib/jquery-3.6.1.js'></script> -->
+	
+	<!-- 3) 외부 서버에 있는 방식으로 다운받음 : CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	
+	<script type="text/javascript">
+	
+	$(document).ready(function(){	// = (동일)  $(function () {})	
+			// 문서가 준비되면 here 구문 숨김
+/* 		$('div#here').hide();
+		let n = $('#student > div#name');
+		alert(n.text()) 	// 홍길동 (getter 로 값 지정하기 전)
+		n.text('홍돌이');	// 값을 지정하면 getter , 값이 없으면 setter : 홍돌이라는 텍스트로 값을 넘겨줌.
+		alert(n.text())		// 홍돌이 */
+		
+		$('#here').click(function(){
+			$('#here').text('마우스 클릭함');
+		});
+		
+		$('#here').mouseover(function(){
+			$(this).text('마우스가 올라감')	// (this) = ('#here') 의미함.
+			$(this).css({'color' : 'red'})
+		});
+		
+		$('#here').mouseout(function(){
+			$(this).text('마우스가 내려감')
+			$(this).css({'color' : 'blue'})
+		});
+		
+		$('#here').hover(function(){
+							$(this).css({'border' : '2px solid green'})		
+		},function(){
+			$(this).css({'border' : '2px dotted orange'})
+		});	// 인자값으로 함수 두개 들어감.
+		
+		// hide() / show()
+		// 효과함수
+		$('#here').fadeOut(1000).fadeIn(1000);	// 체이닝 : 한 객체에 다양한 메서드 기법을 줄줄이 이어서 하는 것.
+		$('#here').slideUp(2000).slideDown(1000);
+		
+		// 요소찾기
+		let s = $('#student');
+		let n = s.find('#name');	// 자식 태그 찾을때
+		//n.text('홍가');				// 텍스트 추가시
+		n.html('<span>홍가2</span>');	// 태그 + 텍스트 추가시
+		//n.text('<span>홍가3</span>');
+	});
+	
+	</script>
+</head>
+<body>
+
+	<div id="here">
+	아자아자 제이쿼리~~!!! 
+	</div>
+	
+	<div id="student">
+		<div id="name">홍길동</div>
+		<div id="age">34</div>
+	</div>
+
+
+</body>
+</html>
